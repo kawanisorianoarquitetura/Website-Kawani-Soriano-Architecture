@@ -9,10 +9,13 @@
 		<title>Kawani S. — Architecture Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="manifest" href="/site.webmanifest">
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+		<link rel="manifest" href="site.webmanifest">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
@@ -27,19 +30,26 @@
 		  <nav class="nav" id="nav">
 		    <ul>
 		      <li><a href="#one">About</a></li>
-		      <li><a href="#three">Projects</a></li>
-		      <li><a href="#footer">Contacts</a></li>
+		      <li><a href="#two">Projects</a></li>
+		      <li><a href="#three">Services</a></li>
+		      <li><a href="#footer">Contact</a></li>
 		    </ul>
 		  </nav>
 		</div>
 
 		<div class="menu-bg" id="menu-bg"></div>
 
+		<!-- Language Switcher -->
+		<a href="index_br.html" id="language-switcher" class="language-switcher" title="Switch to Portuguese">
+			<img src="images/flag.png" alt="Portuguese" />
+			<span>Português</span>
+		</a>
+
 		<!-- Header -->
 			<section id="header">
 				<header class="major">
 					<img src="images/logo.png" alt="Kawani S. logo" class="logo" style="width:290px;max: width 290px;px;height:auto;" />
-					<p>Architectural Designer — Portfolio</p>
+					<p>TRANSFORMING SPACES INTO MEANINGFUL EXPERIENCES</p>
 				</header>
 				<div class="container">
 					<ul class="actions special">
@@ -73,6 +83,63 @@
 					<span class="image fit primary"><img src="images/background1.jpeg" alt="" /></span>
 					<div class="content">
 						<header class="major">
+							<h2>Selected Projects</h2>
+						</header>
+						<p>Highlighted projects showcasing concept development, documentation, and visualization.</p>
+
+						<!-- Project Grid -->
+						<div class="project-grid">
+							<div class="project-card">
+								<div class="project-image">
+									<img src="images/project-sunrise.jpeg" alt="Project Sunrise" />
+									<div class="project-overlay">
+										<h3>Project Sunrise</h3>
+										<p>Modern residential design featuring natural light and sustainable materials</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="project-card">
+								<div class="project-image">
+									<img src="images/project-cp.jpeg" alt="Project CP" />
+									<div class="project-overlay">
+										<h3>Project CP</h3>
+										<p>Contemporary commercial space with innovative spatial solutions</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="project-card">
+								<div class="project-image">
+									<img src="images/project-au.jpeg" alt="Project AU" />
+									<div class="project-overlay">
+										<h3>Project AU</h3>
+										<p>Urban architecture blending functionality with aesthetic excellence</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="project-card">
+								<div class="project-image">
+									<img src="images/project-wood.jpeg" alt="Project Wood" />
+									<div class="project-overlay">
+										<h3>Project Wood</h3>
+										<p>Eco-friendly design incorporating natural wood elements</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a href="#three" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/background3.jpeg" alt="" /></span>
+					<div class="content">
+						<header class="major">
 							<h2>Services</h2>
 						</header>
 						<p>Architectural design, interior design, master planning, construction documentation, and visualization services tailored to client goals.</p>
@@ -94,20 +161,6 @@
 								<h3>Visualization</h3>
 							</li>
 						</ul>
-					</div>
-					<a href="#three" class="goto-next scrolly">Next</a>
-				</div>
-			</section>
-
-		<!-- Three -->
-			<section id="three" class="main special">
-				<div class="container">
-					<span class="image fit primary"><img src="images/background3.jpeg" alt="" /></span>
-					<div class="content">
-						<header class="major">
-							<h2>Selected Projects</h2>
-						</header>
-						<p>Highlighted projects showcasing concept development, documentation, and visualization. Click any project to view details (replace these placeholders with your project content and images).</p>
 					</div>
 					<a href="#footer" class="goto-next scrolly">Next</a>
 				</div>
@@ -452,6 +505,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							</div>
 						</div>
 					</form>
+					<img src="images/logo.png" alt="Kawani S. logo" class="footer-logo" style="width:150px;height:auto;margin:1.5em auto 1.5em;display:block;" />
 				</div>
 					<footer>
 					<ul class="icons">
@@ -460,7 +514,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						<li><a href="mailto:kawanisorianoarquitetura@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 					<ul class="copyright">
-					
+
 				</footer>
 			</section>
 

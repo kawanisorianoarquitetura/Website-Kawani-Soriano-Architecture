@@ -160,9 +160,9 @@
 
 			// Scrollex.
 				$this.scrollex({
-					mode: 'middle',
-					delay: 200,
-					top: '-10vh',
+					mode: 'top',
+					delay: 100,
+					top: '-100vh',
 					bottom: '-10vh',
 					init: function() { $bg.removeClass('active'); },
 					enter: function() { $bg.addClass('active'); },
