@@ -3682,7 +3682,7 @@ body.modal-open .menu-bg {
 @media screen and (max-width: 980px) {
 	.modal-content {
 		width: 95%;
-		margin: 5% auto;
+		margin: 10px auto;
 	}
 
 	.modal-body {
