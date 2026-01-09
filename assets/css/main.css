@@ -3555,12 +3555,10 @@ header.major img.logo {
 	animation: fadeIn 0.3s ease;
 }
 
-/* Hide language switcher when modal is open on mobile */
-@media screen and (max-width: 980px) {
-	.project-modal .language-switcher,
-	body:has(.project-modal[style*="display: block"]) .language-switcher {
-		display: none !important;
-	}
+/* Hide language switcher when modal is open */
+.project-modal .language-switcher,
+body:has(.project-modal[style*="display: block"]) .language-switcher {
+	display: none !important;
 }
 
 @keyframes fadeIn {
