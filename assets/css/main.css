@@ -3234,10 +3234,14 @@ header.major .logo {
 	}
 
 	#menu-bar {
+		position: fixed;
+		top: 0;
+		left: 0;
 		width: 45px;
 		height: 40px;
 		margin: 30px 0 20px 20px;
 		cursor: pointer;
+		z-index: 10050;
 	}
 
 	.bar {
@@ -3432,6 +3436,7 @@ header.major .logo {
 	padding: 1.5em;
 	transform: translateY(100%);
 	transition: transform 0.4s ease;
+	pointer-events: none;
 }
 
 .project-card:hover .project-overlay {
@@ -3548,6 +3553,14 @@ header.major img.logo {
 	background-color: rgba(0, 0, 0, 0.9);
 	overflow-y: auto;
 	animation: fadeIn 0.3s ease;
+}
+
+/* Hide language switcher when modal is open on mobile */
+@media screen and (max-width: 980px) {
+	.project-modal .language-switcher,
+	body:has(.project-modal[style*="display: block"]) .language-switcher {
+		display: none !important;
+	}
 }
 
 @keyframes fadeIn {
@@ -3755,118 +3768,52 @@ header.major img.logo {
 	.project-overlay {
 		opacity: 1;
 	}
-	
+
 	.view-project {
 		font-size: 0.75em;
 		padding: 6px 16px;
 	}
 
-/* Enhanced Project Overlay - Full Visibility */
-.project-overlay {
-	position: absolute !important;
-	top: 0 !important;
-	bottom: 0 !important;
-	left: 0 !important;
-	right: 0 !important;
-	background: linear-gradient(to top, rgba(139, 103, 76, 0.95), rgba(139, 103, 76, 0.85)) !important;
-	color: white !important;
-	padding: 2em !important;
-	display: flex !important;
-	flex-direction: column !important;
-	justify-content: center !important;
-	align-items: center !important;
-	text-align: center !important;
-	opacity: 0 !important;
-	transition: opacity 0.4s ease !important;
-}
-
-.project-card:hover .project-overlay {
-	opacity: 1 !important;
-}
-
-.project-overlay p {
-	margin: 0 0 1.5em 0 !important;
-	font-size: 0.95em !important;
-	line-height: 1.7 !important;
-	color: rgba(255, 255, 255, 0.98) !important;
-	max-width: 90% !important;
-}
-
-.project-overlay .view-project {
-	margin-top: auto !important;
-}
-
-/* Mobile adjustments */
-@media screen and (max-width: 980px) {
-	.project-overlay {
-		opacity: 1 !important;
-		background: linear-gradient(to top, rgba(139, 103, 76, 0.9), rgba(139, 103, 76, 0.75)) !important;
-		padding: 1.5em !important;
+	.project-title {
+		font-size: 1.1em;
 	}
-	
-	.project-overlay p {
-		font-size: 0.85em !important;
+
+	.language-switcher {
+		top: 15px;
+		right: 15px;
+		gap: 1px;
+		padding: 3px;
+	}
+
+	.language-option {
+		padding: 6px 10px;
+		font-size: 0.75em;
 	}
 }
 
 @media screen and (max-width: 736px) {
-	.project-overlay {
-		padding: 1.2em !important;
+	.project-title {
+		font-size: 1em;
+		margin-bottom: 0.5em;
 	}
-	
-	.project-overlay p {
-		font-size: 0.8em !important;
-		line-height: 1.6 !important;
+
+	.view-project {
+		font-size: 0.7em;
+		padding: 5px 14px;
 	}
-}
 
-/* Option 2: Minimal Overlay - Button Only */
-.project-overlay {
-	position: absolute !important;
-	top: 0 !important;
-	bottom: 0 !important;
-	left: 0 !important;
-	right: 0 !important;
-	background: rgba(139, 103, 76, 0.85) !important;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	opacity: 0 !important;
-	transition: opacity 0.3s ease !important;
-}
-
-.project-card:hover .project-overlay {
-	opacity: 1 !important;
-}
-
-.project-overlay p {
-	display: none !important;
-}
-
-.project-overlay .view-project {
-	background: #fff !important;
-	color: #8b674c !important;
-	padding: 12px 30px !important;
-	font-size: 0.9em !important;
-	border: 2px solid #fff !important;
-	margin: 0 !important;
-}
-
-.project-card:hover .view-project {
-	background: rgba(255, 255, 255, 0.95) !important;
-	transform: scale(1.05) !important;
-	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Mobile */
-@media screen and (max-width: 980px) {
-	.project-overlay {
-		opacity: 0.95 !important;
-		background: rgba(139, 103, 76, 0.75) !important;
+	header.major > img.logo {
+		width: 200px !important;
+		max-width: 200px !important;
 	}
-	
-	.project-overlay .view-project {
-		font-size: 0.8em !important;
-		padding: 10px 24px !important;
+
+	.language-switcher {
+		top: 12px;
+		right: 12px;
+	}
+
+	.language-option {
+		padding: 5px 8px;
+		font-size: 0.7em;
 	}
 }
