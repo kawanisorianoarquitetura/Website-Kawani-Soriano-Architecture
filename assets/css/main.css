@@ -3555,9 +3555,12 @@ header.major img.logo {
 	animation: fadeIn 0.3s ease;
 }
 
-/* Hide language switcher when modal is open */
+/* Hide language switcher and burger menu when modal is open */
 .project-modal .language-switcher,
-body:has(.project-modal[style*="display: block"]) .language-switcher {
+body:has(.project-modal[style*="display: block"]) .language-switcher,
+body:has(.project-modal[style*="display: block"]) #menu-bar,
+body:has(.project-modal[style*="display: block"]) .nav,
+body:has(.project-modal[style*="display: block"]) .menu-bg {
 	display: none !important;
 }
 
