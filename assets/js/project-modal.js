@@ -47,15 +47,6 @@ function openProjectModal(projectId) {
 	const project = projectData[projectId];
 	if (!project) return;
 
-	// Get the modal FIRST
-	const modal = document.getElementById('projectModal');
-
-	// Reset modal scroll BEFORE showing it
-	modal.scrollTop = 0;
-
-	// Store current page scroll position
-	const scrollY = window.scrollY || window.pageYOffset;
-
 	// Set content
 	document.getElementById('modalTitle').textContent = project.title;
 	document.getElementById('modalDescription').textContent = project.description;
@@ -66,42 +57,25 @@ function openProjectModal(projectId) {
 	document.getElementById('modalImg3').src = project.images[2];
 	document.getElementById('modalImg4').src = project.images[3];
 
-	// Prevent body scrolling and lock position
-	document.body.style.position = 'fixed';
-	document.body.style.top = `-${scrollY}px`;
-	document.body.style.left = '0';
-	document.body.style.right = '0';
-	document.body.style.overflow = 'hidden';
-	document.body.classList.add('modal-open');
-	document.body.setAttribute('data-scroll-y', scrollY);
+	// Get the modal
+	const modal = document.getElementById('projectModal');
 
-	// Show modal
+	// Show modal first
 	modal.style.display = 'block';
 
-	// Force scroll to top multiple times with delays
-	setTimeout(() => modal.scrollTop = 0, 0);
-	setTimeout(() => modal.scrollTop = 0, 50);
-	setTimeout(() => modal.scrollTop = 0, 100);
+	// Immediately reset its scroll
+	modal.scrollTop = 0;
+
+	// Prevent body scrolling
+	document.body.style.overflow = 'hidden';
+	document.body.classList.add('modal-open');
 }
 
 // Close modal function
 function closeProjectModal() {
 	document.getElementById('projectModal').style.display = 'none';
 	document.body.classList.remove('modal-open');
-
-	// Restore body position and scroll
-	const scrollY = document.body.getAttribute('data-scroll-y');
-	document.body.style.position = '';
-	document.body.style.top = '';
-	document.body.style.left = '';
-	document.body.style.right = '';
 	document.body.style.overflow = '';
-	document.body.removeAttribute('data-scroll-y');
-
-	// Restore scroll position
-	if (scrollY) {
-		window.scrollTo(0, parseInt(scrollY));
-	}
 }
 
 // Close modal when clicking outside the content

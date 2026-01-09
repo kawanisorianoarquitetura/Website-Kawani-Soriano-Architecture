@@ -3684,10 +3684,14 @@ body.modal-open .menu-bg {
 
 /* Responsive adjustments for modal */
 @media screen and (max-width: 980px) {
+	.project-modal {
+		align-items: flex-start;
+		padding-top: 10px;
+	}
+
 	.modal-content {
 		width: 95%;
 		margin: 0 auto;
-		margin-top: 0;
 	}
 
 	.modal-body {
