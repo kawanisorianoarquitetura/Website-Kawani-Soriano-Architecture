@@ -3680,9 +3680,16 @@ body.modal-open .menu-bg {
 
 /* Responsive adjustments for modal */
 @media screen and (max-width: 980px) {
+	.project-modal {
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
 	.modal-content {
 		width: 95%;
-		margin: 10px auto;
+		margin: 0 auto !important;
+		margin-top: 10px !important;
 	}
 
 	.modal-body {

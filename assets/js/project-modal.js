@@ -60,14 +60,16 @@ function openProjectModal(projectId) {
 	// Show modal
 	document.getElementById('projectModal').style.display = 'block';
 
-	// Scroll window to top immediately
-	window.scrollTo(0, 0);
-
 	document.body.style.overflow = 'hidden'; // Prevent background scrolling
 	document.body.classList.add('modal-open'); // Add class for hiding elements
 
-	// Scroll modal content to top
-	document.getElementById('projectModal').scrollTop = 0;
+	// Force scroll to top - must happen after display block
+	setTimeout(() => {
+		window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+		document.getElementById('projectModal').scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+		document.body.scrollTop = 0;
+	}, 0);
 }
 
 // Close modal function
