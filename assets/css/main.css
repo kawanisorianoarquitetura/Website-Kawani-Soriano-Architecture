@@ -3005,15 +3005,10 @@ section#header .button.primary:active {
 
 		/* Main BG */
 
-			.main-bg {
-				display: none;
-			}
-
 		/* Main */
 
 			.main .image.primary {
-				display: block;
-				margin: 0 0 4em 0;
+				display: none;
 			}
 
 			.main .container {
