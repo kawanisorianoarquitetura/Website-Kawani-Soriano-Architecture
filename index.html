@@ -40,10 +40,11 @@
 		<div class="menu-bg" id="menu-bg"></div>
 
 		<!-- Language Switcher -->
-		<a href="index_br.html" id="language-switcher" class="language-switcher" title="Switch to Portuguese">
-			<img src="images/flag.png" alt="Portuguese" />
-			<span>Português</span>
-		</a>
+		<div class="language-switcher">
+			<a href="index_br.html" class="language-option" title="Português (Brasil)">PT</a>
+			<a href="index.html" class="language-option active" title="English">EN</a>
+			<a href="index_it.html" class="language-option" title="Italiano">IT</a>
+		</div>
 
 		<!-- Header -->
 			<section id="header">
@@ -89,42 +90,42 @@
 
 						<!-- Project Grid -->
 						<div class="project-grid">
-							<div class="project-card">
+							<div class="project-card" onclick="openProjectModal('sunrise')">
+								<h3 class="project-title">Project Sunrise</h3>
 								<div class="project-image">
 									<img src="images/project-sunrise.jpeg" alt="Project Sunrise" />
 									<div class="project-overlay">
-										<h3>Project Sunrise</h3>
-										<p>Modern residential design featuring natural light and sustainable materials</p>
+										<span class="view-project">View Project →</span>
 									</div>
 								</div>
 							</div>
 
-							<div class="project-card">
+							<div class="project-card" onclick="openProjectModal('cp')">
+								<h3 class="project-title">Project CP</h3>
 								<div class="project-image">
 									<img src="images/project-cp.jpeg" alt="Project CP" />
 									<div class="project-overlay">
-										<h3>Project CP</h3>
-										<p>Contemporary commercial space with innovative spatial solutions</p>
+										<span class="view-project">View Project →</span>
 									</div>
 								</div>
 							</div>
 
-							<div class="project-card">
+							<div class="project-card" onclick="openProjectModal('au')">
+								<h3 class="project-title">Project AU</h3>
 								<div class="project-image">
 									<img src="images/project-au.jpeg" alt="Project AU" />
 									<div class="project-overlay">
-										<h3>Project AU</h3>
-										<p>Urban architecture blending functionality with aesthetic excellence</p>
+										<span class="view-project">View Project →</span>
 									</div>
 								</div>
 							</div>
 
-							<div class="project-card">
+							<div class="project-card" onclick="openProjectModal('wood')">
+								<h3 class="project-title">Project Wood</h3>
 								<div class="project-image">
 									<img src="images/project-wood.jpeg" alt="Project Wood" />
 									<div class="project-overlay">
-										<h3>Project Wood</h3>
-										<p>Eco-friendly design incorporating natural wood elements</p>
+										<span class="view-project">View Project →</span>
 									</div>
 								</div>
 							</div>
@@ -487,6 +488,23 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			</section>
 		-->
 
+		<!-- Project Modal -->
+		<div id="projectModal" class="project-modal">
+			<div class="modal-content">
+				<span class="modal-close" onclick="closeProjectModal()">&times;</span>
+				<div class="modal-body">
+					<h2 id="modalTitle"></h2>
+					<p id="modalDescription"></p>
+					<div class="modal-gallery">
+						<img id="modalImg1" src="" alt="" />
+						<img id="modalImg2" src="" alt="" />
+						<img id="modalImg3" src="" alt="" />
+						<img id="modalImg4" src="" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- Footer -->
 			<section id="footer">
 				<div class="container">
@@ -526,6 +544,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/project-modal.js"></script>
 
 	</body>
 </html>
