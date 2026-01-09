@@ -47,10 +47,6 @@ function openProjectModal(projectId) {
 	const project = projectData[projectId];
 	if (!project) return;
 
-	// FIRST: Scroll window to top before doing anything
-	window.scrollTo(0, 0);
-	document.documentElement.scrollTop = 0;
-
 	// Set content
 	document.getElementById('modalTitle').textContent = project.title;
 	document.getElementById('modalDescription').textContent = project.description;
@@ -64,14 +60,22 @@ function openProjectModal(projectId) {
 	// Get the modal
 	const modal = document.getElementById('projectModal');
 
-	// Show modal AFTER scroll
+	// Show modal with display flex (mobile) or block (desktop)
 	modal.style.display = 'block';
+
+	// Force modal scroll to 0 - this is critical for mobile
 	modal.scrollTop = 0;
+	modal.scrollLeft = 0;
 
 	// Prevent body scrolling
 	document.body.style.overflow = 'hidden';
 	document.body.style.height = '100%';
 	document.body.classList.add('modal-open');
+
+	// Double-check scroll position after a brief moment
+	requestAnimationFrame(() => {
+		modal.scrollTop = 0;
+	});
 }
 
 // Close modal function

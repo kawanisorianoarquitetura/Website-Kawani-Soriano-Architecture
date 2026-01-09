@@ -3684,8 +3684,13 @@ body.modal-open .menu-bg {
 		position: fixed !important;
 		top: 0 !important;
 		left: 0 !important;
-		overflow-y: scroll;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
 		-webkit-overflow-scrolling: touch;
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 0 !important;
 	}
 
 	.modal-content {
@@ -3693,6 +3698,7 @@ body.modal-open .menu-bg {
 		margin: 10px auto 20px auto;
 		animation: none; /* Disable animation on mobile */
 		position: relative;
+		flex-shrink: 0;
 	}
 
 	.modal-body {
@@ -3732,8 +3738,13 @@ body.modal-open .menu-bg {
 		bottom: 0 !important;
 		height: 100vh;
 		height: 100dvh; /* Use dynamic viewport height on mobile */
-		overflow-y: scroll;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
 		-webkit-overflow-scrolling: touch;
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 0 !important;
 	}
 
 	.modal-content {
@@ -3743,6 +3754,7 @@ body.modal-open .menu-bg {
 		border-radius: 0;
 		position: relative;
 		top: 0;
+		flex-shrink: 0;
 	}
 
 	.modal-body {
