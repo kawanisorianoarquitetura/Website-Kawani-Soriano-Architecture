@@ -2251,13 +2251,14 @@ header.major .logo {
 
 		.icon.major {
 			display: block;
-			margin: 0 0 1.5em 0;
+			margin: 0;
 			width: 80px;
 			height: 80px;
 			line-height: 80px;
 			border-radius: 50%;
 			background: rgba(134, 82, 48, 0.08);
 			transition: all 0.3s ease;
+			flex-shrink: 0;
 		}
 
 			.icon.major:before {
@@ -2395,14 +2396,17 @@ header.major .logo {
 	}
 
 		ul.icons-grid li {
-			display: block;
+			display: flex;
+			align-items: center;
 			float: left;
 			padding: 3em 0;
 			width: 50%;
+			gap: 1.5em;
 		}
 
 			ul.icons-grid li h3 {
 				margin: 0;
+				flex: 1;
 			}
 
 			ul.icons-grid li:nth-child(2n + 1) {
@@ -3682,7 +3686,8 @@ body.modal-open .menu-bg {
 @media screen and (max-width: 980px) {
 	.modal-content {
 		width: 95%;
-		margin: 5% auto;
+		margin: 0 auto;
+		margin-top: 0;
 	}
 
 	.modal-body {

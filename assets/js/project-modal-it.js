@@ -1,8 +1,8 @@
 // Project data with images and descriptions
 const projectData = {
 	sunrise: {
-		title: "Project Sunrise",
-		description: "Modern residential design featuring natural light and sustainable materials. This project showcases innovative approaches to contemporary living spaces with emphasis on environmental consciousness and aesthetic harmony.",
+		title: "Progetto Sunrise",
+		description: "Design residenziale moderno con luce naturale e materiali sostenibili. Questo progetto presenta approcci innovativi agli spazi abitativi contemporanei con enfasi sulla coscienza ambientale e l'armonia estetica.",
 		images: [
 			"images/project-sunrise-1.jpeg",
 			"images/project-sunrise-2.jpeg",
@@ -11,8 +11,8 @@ const projectData = {
 		]
 	},
 	cp: {
-		title: "Project CP",
-		description: "Contemporary commercial space with innovative spatial solutions. A thoughtful integration of form and function that creates an inspiring environment for modern business operations.",
+		title: "Progetto CP",
+		description: "Spazio commerciale contemporaneo con soluzioni spaziali innovative. Un'integrazione attenta di forma e funzione che crea un ambiente stimolante per le operazioni commerciali moderne.",
 		images: [
 			"images/project-cp-1.jpeg",
 			"images/project-cp-2.jpeg",
@@ -21,8 +21,8 @@ const projectData = {
 		]
 	},
 	au: {
-		title: "Project AU",
-		description: "Urban architecture blending functionality with aesthetic excellence. This project demonstrates how contemporary design can enhance urban living while respecting the surrounding context.",
+		title: "Progetto AU",
+		description: "Architettura urbana che fonde funzionalità ed eccellenza estetica. Questo progetto dimostra come il design contemporaneo possa migliorare la vita urbana rispettando il contesto circostante.",
 		images: [
 			"images/project-au-1.jpeg",
 			"images/project-au-2.jpeg",
@@ -31,8 +31,8 @@ const projectData = {
 		]
 	},
 	wood: {
-		title: "Project Wood",
-		description: "Eco-friendly design incorporating natural wood elements. A harmonious blend of organic materials and modern design principles creating warm, inviting spaces.",
+		title: "Progetto Wood",
+		description: "Design ecologico che incorpora elementi naturali in legno. Una miscela armoniosa di materiali organici e principi di design moderni che creano spazi caldi e accoglienti.",
 		images: [
 			"images/project-wood-1.jpeg",
 			"images/project-wood-2.jpeg",
