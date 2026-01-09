@@ -47,6 +47,10 @@ function openProjectModal(projectId) {
 	const project = projectData[projectId];
 	if (!project) return;
 
+	// FIRST: Scroll window to top before doing anything
+	window.scrollTo(0, 0);
+	document.documentElement.scrollTop = 0;
+
 	// Set content
 	document.getElementById('modalTitle').textContent = project.title;
 	document.getElementById('modalDescription').textContent = project.description;
@@ -57,22 +61,17 @@ function openProjectModal(projectId) {
 	document.getElementById('modalImg3').src = project.images[2];
 	document.getElementById('modalImg4').src = project.images[3];
 
+	// Get the modal
+	const modal = document.getElementById('projectModal');
+
+	// Show modal AFTER scroll
+	modal.style.display = 'block';
+	modal.scrollTop = 0;
+
 	// Prevent body scrolling
 	document.body.style.overflow = 'hidden';
 	document.body.style.height = '100%';
 	document.body.classList.add('modal-open');
-
-	// Get the modal
-	const modal = document.getElementById('projectModal');
-
-	// Show modal
-	modal.style.display = 'block';
-
-	// Scroll both window and modal to top
-	setTimeout(() => {
-		window.scrollTo({top: 0, behavior: 'auto'});
-		modal.scrollTo({top: 0, behavior: 'auto'});
-	}, 10);
 }
 
 // Close modal function
