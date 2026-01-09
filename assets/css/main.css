@@ -3714,6 +3714,11 @@ body.modal-open .menu-bg {
 }
 
 @media screen and (max-width: 480px) {
+	.project-modal {
+		height: 100vh;
+		height: 100dvh; /* Use dynamic viewport height on mobile */
+	}
+
 	.modal-content {
 		width: 100%;
 		margin: 0;
