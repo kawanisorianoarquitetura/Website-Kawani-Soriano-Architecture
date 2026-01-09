@@ -47,6 +47,9 @@ function openProjectModal(projectId) {
 	const project = projectData[projectId];
 	if (!project) return;
 
+	// Store current page scroll position
+	const scrollY = window.scrollY || window.pageYOffset;
+
 	// Set content
 	document.getElementById('modalTitle').textContent = project.title;
 	document.getElementById('modalDescription').textContent = project.description;
@@ -60,30 +63,40 @@ function openProjectModal(projectId) {
 	// Get the modal
 	const modal = document.getElementById('projectModal');
 
-	// Show modal with display flex (mobile) or block (desktop)
+	// Prevent body scrolling and lock position
+	document.body.style.position = 'fixed';
+	document.body.style.top = `-${scrollY}px`;
+	document.body.style.left = '0';
+	document.body.style.right = '0';
+	document.body.style.overflow = 'hidden';
+	document.body.classList.add('modal-open');
+	document.body.setAttribute('data-scroll-y', scrollY);
+
+	// Show modal
 	modal.style.display = 'block';
 
-	// Force modal scroll to 0 - this is critical for mobile
+	// Ensure modal starts at top
 	modal.scrollTop = 0;
-	modal.scrollLeft = 0;
-
-	// Prevent body scrolling
-	document.body.style.overflow = 'hidden';
-	document.body.style.height = '100%';
-	document.body.classList.add('modal-open');
-
-	// Double-check scroll position after a brief moment
-	requestAnimationFrame(() => {
-		modal.scrollTop = 0;
-	});
 }
 
 // Close modal function
 function closeProjectModal() {
 	document.getElementById('projectModal').style.display = 'none';
 	document.body.classList.remove('modal-open');
+
+	// Restore body position and scroll
+	const scrollY = document.body.getAttribute('data-scroll-y');
+	document.body.style.position = '';
+	document.body.style.top = '';
+	document.body.style.left = '';
+	document.body.style.right = '';
 	document.body.style.overflow = '';
-	document.body.style.height = '';
+	document.body.removeAttribute('data-scroll-y');
+
+	// Restore scroll position
+	if (scrollY) {
+		window.scrollTo(0, parseInt(scrollY));
+	}
 }
 
 // Close modal when clicking outside the content
