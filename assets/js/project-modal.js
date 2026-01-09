@@ -59,8 +59,15 @@ function openProjectModal(projectId) {
 
 	// Show modal
 	document.getElementById('projectModal').style.display = 'block';
+
+	// Scroll window to top immediately
+	window.scrollTo(0, 0);
+
 	document.body.style.overflow = 'hidden'; // Prevent background scrolling
 	document.body.classList.add('modal-open'); // Add class for hiding elements
+
+	// Scroll modal content to top
+	document.getElementById('projectModal').scrollTop = 0;
 }
 
 // Close modal function
