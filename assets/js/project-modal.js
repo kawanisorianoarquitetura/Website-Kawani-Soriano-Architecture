@@ -60,12 +60,14 @@ function openProjectModal(projectId) {
 	// Show modal
 	document.getElementById('projectModal').style.display = 'block';
 	document.body.style.overflow = 'hidden'; // Prevent background scrolling
+	document.body.classList.add('modal-open'); // Add class for hiding elements
 }
 
 // Close modal function
 function closeProjectModal() {
 	document.getElementById('projectModal').style.display = 'none';
 	document.body.style.overflow = 'auto'; // Re-enable scrolling
+	document.body.classList.remove('modal-open'); // Remove class
 }
 
 // Close modal when clicking outside the content

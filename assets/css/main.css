@@ -3005,6 +3005,15 @@ section#header .button.primary:active {
 
 		/* Main BG */
 
+		/* Fix background for mobile performance */
+		html {
+			background-attachment: scroll, scroll;
+		}
+
+		.main-bg {
+			background-attachment: scroll, scroll;
+		}
+
 		/* Main */
 
 			.main .image.primary {
@@ -3059,6 +3068,15 @@ section#header .button.primary:active {
 			h2 {
 				font-size: 1.35em;
 			}
+
+		/* Fix background for mobile performance */
+		html {
+			background-attachment: scroll, scroll;
+		}
+
+		.main-bg {
+			background-attachment: scroll, scroll;
+		}
 
 		/* Main */
 
@@ -3548,14 +3566,15 @@ header.major img.logo {
 	background-color: rgba(0, 0, 0, 0.9);
 	overflow-y: auto;
 	animation: fadeIn 0.3s ease;
+	-webkit-overflow-scrolling: touch;
+	will-change: opacity;
 }
 
 /* Hide language switcher and burger menu when modal is open */
-.project-modal .language-switcher,
-body:has(.project-modal[style*="display: block"]) .language-switcher,
-body:has(.project-modal[style*="display: block"]) #menu-bar,
-body:has(.project-modal[style*="display: block"]) .nav,
-body:has(.project-modal[style*="display: block"]) .menu-bg {
+body.modal-open .language-switcher,
+body.modal-open #menu-bar,
+body.modal-open .nav,
+body.modal-open .menu-bg {
 	display: none !important;
 }
 
