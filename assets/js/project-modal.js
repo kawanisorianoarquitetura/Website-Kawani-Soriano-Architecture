@@ -42,10 +42,16 @@ const projectData = {
 	}
 };
 
+// Store scroll position
+let scrollPosition = 0;
+
 // Open modal function
 function openProjectModal(projectId) {
 	const project = projectData[projectId];
 	if (!project) return;
+
+	// Store current scroll position
+	scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
 	// Set content
 	document.getElementById('modalTitle').textContent = project.title;
@@ -57,24 +63,31 @@ function openProjectModal(projectId) {
 	document.getElementById('modalImg3').src = project.images[2];
 	document.getElementById('modalImg4').src = project.images[3];
 
+	// Lock body position
+	document.body.style.position = 'fixed';
+	document.body.style.top = `-${scrollPosition}px`;
+	document.body.style.width = '100%';
+	document.body.style.overflow = 'hidden';
+	document.body.classList.add('modal-open');
+
 	// Show modal
 	document.getElementById('projectModal').style.display = 'block';
-
-	// Scroll window to top immediately
-	window.scrollTo(0, 0);
-
-	document.body.style.overflow = 'hidden'; // Prevent background scrolling
-	document.body.classList.add('modal-open'); // Add class for hiding elements
-
-	// Scroll modal content to top
 	document.getElementById('projectModal').scrollTop = 0;
 }
 
 // Close modal function
 function closeProjectModal() {
 	document.getElementById('projectModal').style.display = 'none';
-	document.body.style.overflow = 'auto'; // Re-enable scrolling
-	document.body.classList.remove('modal-open'); // Remove class
+	document.body.classList.remove('modal-open');
+
+	// Restore body position and scroll
+	document.body.style.position = '';
+	document.body.style.top = '';
+	document.body.style.width = '';
+	document.body.style.overflow = '';
+
+	// Restore scroll position
+	window.scrollTo(0, scrollPosition);
 }
 
 // Close modal when clicking outside the content
