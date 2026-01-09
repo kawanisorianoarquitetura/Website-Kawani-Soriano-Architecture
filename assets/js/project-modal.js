@@ -47,6 +47,11 @@ function openProjectModal(projectId) {
 	const project = projectData[projectId];
 	if (!project) return;
 
+	// Scroll to top FIRST before anything else
+	window.scrollTo(0, 0);
+	document.documentElement.scrollTop = 0;
+	document.body.scrollTop = 0;
+
 	// Set content
 	document.getElementById('modalTitle').textContent = project.title;
 	document.getElementById('modalDescription').textContent = project.description;
@@ -58,18 +63,12 @@ function openProjectModal(projectId) {
 	document.getElementById('modalImg4').src = project.images[3];
 
 	// Show modal
-	document.getElementById('projectModal').style.display = 'block';
+	const modal = document.getElementById('projectModal');
+	modal.style.display = 'block';
+	modal.scrollTop = 0;
 
 	document.body.style.overflow = 'hidden'; // Prevent background scrolling
 	document.body.classList.add('modal-open'); // Add class for hiding elements
-
-	// Force scroll to top - must happen after display block
-	setTimeout(() => {
-		window.scrollTo({top: 0, left: 0, behavior: 'instant'});
-		document.getElementById('projectModal').scrollTop = 0;
-		document.documentElement.scrollTop = 0;
-		document.body.scrollTop = 0;
-	}, 0);
 }
 
 // Close modal function

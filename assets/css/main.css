@@ -3565,9 +3565,11 @@ header.major img.logo {
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.9);
 	overflow-y: auto;
+	overflow-x: hidden;
 	animation: fadeIn 0.3s ease;
 	-webkit-overflow-scrolling: touch;
 	will-change: opacity;
+	padding: 0;
 }
 
 /* Hide language switcher and burger menu when modal is open */
@@ -3682,14 +3684,19 @@ body.modal-open .menu-bg {
 @media screen and (max-width: 980px) {
 	.project-modal {
 		position: fixed;
-		top: 0;
+		top: 0 !important;
 		left: 0;
+		padding: 0 !important;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
 	}
 
 	.modal-content {
 		width: 95%;
-		margin: 0 auto !important;
-		margin-top: 10px !important;
+		margin: 10px auto 20px auto !important;
+		position: relative;
 	}
 
 	.modal-body {
