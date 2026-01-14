@@ -3568,9 +3568,17 @@ header.major img.logo {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.9);
-	overflow: hidden;
+	overflow-y: auto;
+	overflow-x: hidden;
 	animation: fadeIn 0.3s ease;
 	will-change: opacity;
+	padding: 20px 0;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+	overflow: hidden;
 }
 
 /* Hide language switcher and burger menu when modal is open */
@@ -3587,25 +3595,21 @@ body.modal-open .menu-bg {
 }
 
 .modal-content {
-	position: fixed;
-	top: 20px;
-	left: 50%;
-	transform: translateX(-50%);
+	position: relative;
+	margin: 0 auto;
 	background-color: #fff;
 	padding: 0;
 	width: 90%;
 	max-width: 1200px;
-	max-height: calc(100vh - 40px);
-	overflow-y: auto;
+	min-height: min-content;
 	border-radius: 8px;
 	box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
 	animation: slideIn 0.3s ease;
-	-webkit-overflow-scrolling: touch;
 }
 
 @keyframes slideIn {
-	from { transform: translate(-50%, -50px); opacity: 0; }
-	to { transform: translateX(-50%); opacity: 1; }
+	from { transform: translateY(-20px); opacity: 0; }
+	to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-close {
@@ -3690,7 +3694,10 @@ body.modal-open .menu-bg {
 @media screen and (max-width: 980px) {
 	.modal-content {
 		width: 95%;
-		top: 10px;
+	}
+
+	.project-modal {
+		padding: 10px 0;
 	}
 
 	.modal-body {
@@ -3724,8 +3731,11 @@ body.modal-open .menu-bg {
 @media screen and (max-width: 480px) {
 	.modal-content {
 		width: 100%;
-		margin: 0;
 		border-radius: 0;
+	}
+
+	.project-modal {
+		padding: 0;
 	}
 
 	.modal-body {

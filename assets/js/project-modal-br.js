@@ -43,9 +43,18 @@ const projectData = {
 };
 
 // Open modal function
-function openProjectModal(projectId) {
+function openProjectModal(projectId, event) {
+	// Prevent any default behavior or scrolling
+	if (event) {
+		event.preventDefault();
+		event.stopPropagation();
+	}
+
 	const project = projectData[projectId];
 	if (!project) return;
+
+	// Store current scroll position BEFORE any DOM changes
+	const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
 	// Set content
 	document.getElementById('modalTitle').textContent = project.title;
@@ -63,19 +72,23 @@ function openProjectModal(projectId) {
 	// Show modal first
 	modal.style.display = 'block';
 
-	// Immediately reset its scroll
-	modal.scrollTop = 0;
-
 	// Prevent body scrolling
-	document.body.style.overflow = 'hidden';
 	document.body.classList.add('modal-open');
+
+	// Force scroll to top after a tiny delay to ensure DOM is ready
+	setTimeout(() => {
+		modal.scrollTop = 0;
+		window.scrollTo(0, 0);
+	}, 10);
+
+	return false;
 }
 
 // Close modal function
 function closeProjectModal() {
-	document.getElementById('projectModal').style.display = 'none';
+	const modal = document.getElementById('projectModal');
+	modal.style.display = 'none';
 	document.body.classList.remove('modal-open');
-	document.body.style.overflow = '';
 }
 
 // Close modal when clicking outside the content
