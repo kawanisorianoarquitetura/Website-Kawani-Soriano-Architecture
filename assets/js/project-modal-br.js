@@ -44,7 +44,6 @@ const projectData = {
 
 // Open modal function
 function openProjectModal(projectId, event) {
-	// Prevent any default behavior or scrolling
 	if (event) {
 		event.preventDefault();
 		event.stopPropagation();
@@ -52,9 +51,6 @@ function openProjectModal(projectId, event) {
 
 	const project = projectData[projectId];
 	if (!project) return;
-
-	// Store current scroll position BEFORE any DOM changes
-	const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
 	// Set content
 	document.getElementById('modalTitle').textContent = project.title;
@@ -66,20 +62,17 @@ function openProjectModal(projectId, event) {
 	document.getElementById('modalImg3').src = project.images[2];
 	document.getElementById('modalImg4').src = project.images[3];
 
-	// Get the modal
+	// Show modal
 	const modal = document.getElementById('projectModal');
+	const modalContent = modal.querySelector('.modal-content');
 
-	// Show modal first
 	modal.style.display = 'block';
-
-	// Prevent body scrolling
 	document.body.classList.add('modal-open');
 
-	// Force scroll to top after a tiny delay to ensure DOM is ready
-	setTimeout(() => {
-		modal.scrollTop = 0;
-		window.scrollTo(0, 0);
-	}, 10);
+	// Scroll the modal content into view on mobile
+	requestAnimationFrame(() => {
+		modalContent.scrollIntoView({ behavior: 'instant', block: 'start' });
+	});
 
 	return false;
 }
