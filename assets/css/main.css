@@ -3582,11 +3582,14 @@ header.major img.logo {
 }
 
 /* Prevent body scroll when modal is open */
+html.modal-open,
 body.modal-open {
-	overflow: hidden;
-	position: fixed;
+	overflow: hidden !important;
+	position: fixed !important;
 	width: 100%;
 	height: 100%;
+	touch-action: none;
+	-webkit-overflow-scrolling: auto;
 }
 
 /* Hide language switcher and burger menu when modal is open */
